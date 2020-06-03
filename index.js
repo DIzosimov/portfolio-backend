@@ -5,7 +5,7 @@ const cors = require('cors')
 
 const app = express()
 
-const port = 4444
+const port = process.env.PORT || 8080
 
 app.use(bodyParser.json())
 app.use(bodyParser.urlencoded({ extended: true }))
