@@ -24,11 +24,15 @@ app.post('/api/v1', (req, res) => {
   let data = req.body
 
   let smtpTransport = nodemailer.createTransport({
-    service: 'Gmail',
+    host: 'smtp.gmail.com',
     port: 465,
+    secure: true,
     auth: {
       user: 'david.izosimov@gmail.com',
       pass: 'Brunella12'
+    },
+    tls: {
+      rejectUnauthorized: false
     }
   })
 
@@ -47,6 +51,7 @@ app.post('/api/v1', (req, res) => {
         res.send(error)
       } else {
         res.send('Success')
+        console.log('Message sent: ' + response)
       }
       smtpTransport.close()
     })
