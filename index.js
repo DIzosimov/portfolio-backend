@@ -39,10 +39,10 @@ app.post('/api/v1', (req, res) => {
   let mailOptions = {
     from: data.email,
     to: 'david.izosimov@gmail.com',
-    subject: 'Inquiry',
-    html: `<p>${data.name}</p>
-           <p>${data.email}</p>
-           <p>${data.message}</p>`
+    subject: `${data.subject}`,
+    html: `<p>Name: ${data.name}</p>
+           <p>Email: ${data.email}</p>
+           <p>Message: ${data.message}</p>`
   }
 
   smtpTransport.sendMail(mailOptions,
