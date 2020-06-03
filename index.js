@@ -28,8 +28,8 @@ app.post('/api/v1', (req, res) => {
     port: 465,
     secure: true,
     auth: {
-      user: 'david.izosimov@gmail.com',
-      pass: 'Brunella12'
+      user: process.env.NODE_USERNAME,
+      pass: process.env.NODE_PASSWORD
     },
     tls: {
       rejectUnauthorized: false
